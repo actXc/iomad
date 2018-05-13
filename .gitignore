@@ -13,7 +13,7 @@
 /lib/editor/tinymce/extra/tools/temp/
 *~
 *.swp
-.well_known
+.well-known
 /tags
 /TAGS
 /cscope.*

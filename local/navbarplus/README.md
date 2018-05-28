@@ -9,7 +9,7 @@ Moodle plugin which enhances the functionality of Moodle's page header navbar.
 Requirements
 ------------
 
-This plugin requires Moodle 3.5+
+This plugin requires Moodle 3.3+
 
 
 Motivation for this plugin
@@ -54,8 +54,8 @@ Further information to the parameters:
 * Title: This text will be written in the title and alt attributes of the icon.
 * Supported language(s) (optional): This setting can be used for displaying the link to users of the specified language only. Separate more than one supported language with commas. If the link should be displayed in all languages, then leave this field empty.
 * New window (optional): By default the link will be opened in the same window and the value of this setting is set to false. If you want to open the link in a new window set the value to true.
-* Additional classes (optional): You can add individual classes with this optional parameter. A common use case might be to add Bootstrap's responsive classes to hide an icon for specific display sizes. <br/> You can look up the definitions for the responsive Bootstrap display classes for <a href="https://getbootstrap.com/docs/4.0/utilities/display/">Bootstrap version 4</a> for all Boost based themes.
-The most important classes for Boost based themes might be "d-none d-sm-block" for hiding an icon on small devices or "d-sm-none" for only displaying the icon on small screens.
+* Additional classes (optional): You can add individual classes with this optional parameter. A common use case might be to add Bootstrap's responsive classes to hide an icon for specific display sizes. You can look up the definitions for the responsive Bootstrap classes for <a href="https://v4-alpha.getbootstrap.com/layout/responsive-utilities/">Bootstrap version 4</a> (for all Boost based themes) or for <a href="http://getbootstrap.com/2.3.2/scaffolding.html#responsive">Bootstrap version 2</a> (for all Boostrapbase based themes).
+The most important classes for Boost based themes might be "hidden-sm-down" for hiding an icon on small devices or "hidden-sm-up" for only displaying the icon on small screens.
 * ID (optional): You can add an individual ID to your icon element. This makes it possible to address this specific icon easily with CSS (for example for the Moodle user tours). The string you enter here will always be prefixed with "localnavbarplus-".
 
 Please note:
@@ -76,14 +76,6 @@ If you want to change this icon, you can do this within your own Custom CSS / RA
 ```
 Please replace this example "content" code with your desired Font Awesome icon's unicode.
 
-If you want to hide the footer link to reset the user tour, you can add the following code to your Raw SCSS setting:
-```
-#page-footer .tool_usertours-resettourcontainer {
-    display: none;
-}
-```
-The theme <a href ="https://moodle.org/plugins/theme_boost_campus">Boost Campus</a> implements a own setting to hide the standard link to reset the user tour.
-
 
 How this plugin works / Pitfalls
 --------------------------------
@@ -96,7 +88,14 @@ The purpose of the plugin is to place _only few_ important icons with links in t
 Icon colors
 -----------
 
-The icons will be added to the navbar with the default Moodle icon color. You can change this either in your own CSS file or in the custom CSS or the Raw SCSS section in your theme.
+The icons will be added to the navbar with the default Moodle icon color (a light gray). You can change this either in your own CSS file or in the custom CSS or the Raw SCSS section in your theme. The Moodle pix icons can only be varied in their brightness by using the CSS filter command.
+
+Example for changing the brightness of the Moodle pix icon to white:
+```
+header.navbar .localnavbarplus img.icon {
+    filter: brightness(10);
+}
+```
 
 Example for changing the color of the Font Awesome icon to white:
 ```
@@ -106,25 +105,11 @@ header.navbar .localnavbarplus i.fa::before {
 ```
 
 
-Icon sizes
------------
-
-The icons inherit the default Moodle icon size. Unfortunately, not all Font Awesome icons are equal in their size, so the size of the added icons can vary in size from the existing Moodle icons. You can change the font size of the icons that differ in their size in your own CSS file or in the custom CSS or the Raw SCSS section in your theme.
-
-Example for increasing the font size for the logout icon used in the example above:
-```
-header.navbar .localnavbarplus .fa-sign-out {
-    font-size: 19px;
-}
-```
-
-
 Theme support
 -------------
 
 This plugin should work with all Bootstrap based Moodle themes.
-It has been developed on and tested only with Moodle Core's Boost theme.
-While this plugin should also work with Moodle Core's legacy Clean theme or third party themes, we can't support any other theme than Boost.
+It has been developed on and tested with Moodle Core's Clean and Boost themes.
 
 
 Plugin repositories
@@ -190,7 +175,8 @@ If you want to use this plugin with a RTL language and it doesn't work as-is, yo
 PHP7 Support
 ------------
 
-Since Moodle 3.4 core, PHP7 is mandatory. We are developing and testing this plugin for PHP7 only.
+Since Moodle 3.0, Moodle core basically supports PHP7. This plugin has been thoroughly tested for PHP7 support.
+If you encounter any success or failure with this plugin and the older PHP5 version, please let us know.
 
 
 Copyright

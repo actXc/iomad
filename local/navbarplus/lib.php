@@ -74,7 +74,7 @@ function local_navbarplus_render_navbar_output() {
                                 $faiconpattern = '~^fa-[\w\d-]+$~';
                                 // Check if it's matching the Font Awesome pattern.
                                 if (preg_match($faiconpattern, $setting) > 0) {
-                                    $itemicon = '<i class="icon fa ' . $setting . ' fa-fw"></i>';
+                                    $itemicon = '<i class="fa ' . $setting . ' icon"></i>';
                                     $itemvisible = true;
                                 }
                                 break;
@@ -130,7 +130,7 @@ function local_navbarplus_render_navbar_output() {
                 $linkattributes = array('alt' => $itemtitle, 'title' => $itemtitle);
                 // If optional param for itemopeninnewwindow is set to true add a target=_blank to the link.
                 if ($itemopeninnewwindow) {
-                    $linkattributes['target'] = '_blank';
+                    $attributes['target'] = '_blank';
                 }
                 // Define classes for all icons.
                 $itemclasses = 'localnavbarplus nav-link';
@@ -161,8 +161,10 @@ function local_navbarplus_render_navbar_output() {
                 // Open div.
                 $output .= html_writer::start_tag('div', array('class' => 'localnavbarplus nav-link',
                                                                'id'    => 'local_navbarplus_resetusertour'));
-                // Use the Font Awesome icon "map".
-                $itemicon = '<i class="icon fa fa-map fa-fw"></i>';
+
+                // Use the Font Awesome icon defined in settings.
+                $itemicon = '<i class="fa '.$config->fa_usertours.'"></i>';
+
                 // Use the string for resetting the tour.
                 $resetstring = get_string('resettouronpage', 'tool_usertours');
                 $resethint = get_string('resetusertours_hint', 'local_navbarplus');

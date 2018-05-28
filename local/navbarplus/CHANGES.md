@@ -4,31 +4,11 @@ moodle-local_navbarplus
 Changes
 -------
 
-### Release v3.5-r1
+### Unreleased
 
-* 2018-05-24 - Changed setting description and README due to changes in referred Bootstrap classes.
-* 2018-05-24 - Changed CSS selectors due to changes in Boost. IMPORTANT: Theme clean is no longer supported!
-* 2018-05-24 - Check compatibility for Moodle 3.5, no functionality change.
-
-### Release v3.4-r3
-
-* 2018-05-16 - Implement Privacy API.
-
-### Release v3.4-r2
-
-* 2018-03-05 - Fixed Bug for openinnewwindow feature.
-* 2018-02-22 - Added further information to the README.md.
-
-### Release v3.4-r1
-
-* 2017-12-21- Check compatibility for Moodle 3.4, no functionality change.
-
-### Release v3.3-r2
-
-* 2017-12-15 - Improved HTML structure for the icons.
 * 2017-12-05 - Added Workaround to travis.yml for fixing Behat tests with TravisCI.
 
-### Release v3.3-r1
+### v3.3-r1
 
 * 2017-11-23 - Removed support for Moodle pix icons.
 * 2017-11-23 - Small fix to prevent icons with target blank from being shown when they do not match the language setting.

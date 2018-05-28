@@ -117,6 +117,14 @@ class provider implements
             'forumid' => 'privacy:metadata:forum_track_prefs:forumid',
         ], 'privacy:metadata:forum_track_prefs');
 
+        // The 'forum_queue' table stores temporary data that is not exported/deleted.
+        $items->add_database_table('forum_queue', [
+            'userid' => 'privacy:metadata:forum_queue:userid',
+            'discussionid' => 'privacy:metadata:forum_queue:discussionid',
+            'postid' => 'privacy:metadata:forum_queue:postid',
+            'timemodified' => 'privacy:metadata:forum_queue:timemodified'
+        ], 'privacy:metadata:forum_queue');
+
         // Forum posts can be tagged and rated.
         $items->link_subsystem('core_tag', 'privacy:metadata:core_tag');
         $items->link_subsystem('core_rating', 'privacy:metadata:core_rating');
@@ -787,6 +795,7 @@ class provider implements
         // Delete all files from the posts.
         $fs = get_file_storage();
         $fs->delete_area_files($context->id, 'mod_forum', 'post');
+        $fs->delete_area_files($context->id, 'mod_forum', 'attachment');
 
         // Delete all ratings in the context.
         \core_rating\privacy\provider::delete_ratings($context, 'mod_forum', 'post');
@@ -871,13 +880,14 @@ class provider implements
                 // Delete all Tags.
                 \core_tag\privacy\provider::delete_item_tags_select($context, 'mod_forum', 'forum_posts',
                         "IN ($postidsql)", $postparams);
+
+                // Delete all files from the posts.
+                $fs = get_file_storage();
+                $fs->delete_area_files_select($context->id, 'mod_forum', 'post', "IN ($postidsql)", $postparams);
+                $fs->delete_area_files_select($context->id, 'mod_forum', 'attachment', "IN ($postidsql)", $postparams);
             }
 
             $uniquediscussions->close();
-
-            // Delete all files from the posts.
-            $fs = get_file_storage();
-            $fs->delete_area_files($context->id, 'mod_forum', 'post');
         }
     }
 }

@@ -14,9 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-$string['blocktitle'] = 'Verwaltung';
-$string['dashboard'] = 'LLL';
-$string['iomad_dashboard:view'] = 'Zur Verwaltung';
-$string['iomad'] = 'lern.link-LMS';
-$string['name'] = 'Verwaltung';
-$string['pluginname'] = 'Verwaltung';
+/**
+ * Language file.
+ *
+ * @package   theme_iomadboost
+ * @copyright 2017 Howard Miller
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
+$string['choosereadme'] = 'IomadBoost is the standard theme for Iomad based on Moodle\'s core Boost theme';
+$string['iomaddashboard'] = 'Verwaltung';
+$string['pluginname'] = 'Iomad Boost';
+$string['region-side-pre'] = 'Right';

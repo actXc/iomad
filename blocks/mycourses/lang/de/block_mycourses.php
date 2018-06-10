@@ -47,6 +47,6 @@ $string['showsummarydesc'] = 'Zusammenfassung in der Liste anzeigen';
 $string['title'] = 'Meine Kurse';
 $string['back'] = 'Zurück';
 $string['noavailable'] = 'Keine Kurse, die gestartet werden möchten';
-$string['noinprogress'] = 'Keine Kurse in arbeit';
+$string['noinprogress'] = 'Keine angefangenen Kurse';
 $string['nocompleted'] = 'Keine abgeschlossenen Kurse';
 

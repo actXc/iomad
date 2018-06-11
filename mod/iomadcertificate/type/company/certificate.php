@@ -61,8 +61,8 @@ if ($iomadcertificate->orientation == 'L') {
 } else { // Portrait
     $x = 10;
     $y = 76;
-    $sealx = 90;
-    $sealy = 50;
+    $sealx = 40;
+    $sealy = 200;
     $sigx = 130;
     $sigy = 230;
     $custx = 30;

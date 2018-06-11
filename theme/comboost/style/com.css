@@ -331,3 +331,7 @@ img.activityicon {
 .paging.paging-morelink {
 	display: none;
 }
+/*Navigation unter SCORM ausblenden*/
+#page-mod-scorm-player div.m-t-2.m-b-1 .row {display: none;}
+
+#page-mod-scorm-player #page-header {display: none;}

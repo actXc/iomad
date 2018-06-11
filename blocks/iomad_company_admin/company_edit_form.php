@@ -396,7 +396,7 @@ class company_edit_form extends company_moodleform {
                                     array('subdirs' => 0,
                                          'maxbytes' => 150 * 1024,
                                          'maxfiles' => 1,
-                                         'accepted_types' => array('*.jpg', '*.gif', '*.png')));
+                                         'accepted_types' => array('*.jpg', '*.gif', '*.png','*.svg')));
 
                 $mform->addElement('textarea', 'customcss',
                                     get_string('customcss', 'block_iomad_company_admin'),
